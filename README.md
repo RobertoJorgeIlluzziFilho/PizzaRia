@@ -34,7 +34,7 @@ O projeto utiliza:
 ### Frontend
 - React
 - Vite
-- CSS puro (ainda em decisão)
+- CSS puro
 - JavaScript
 
 ### Backend
@@ -45,5 +45,73 @@ O projeto utiliza:
 
 ---
 
-## 📂 Estrutura do projeto (provisoriamente/exemplo)
+## 📂 Estrutura do projeto 
 
+```bash
+PizzaRia/
+│
+├── frontend/
+│   │
+│   ├── public/
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── assets/
+│   │   │   └── logo.png
+│   │   │
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── PizzaCard.jsx
+│   │   │   └── PedidoCard.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Cadastro.jsx
+│   │   │   ├── Home.jsx
+│   │   │   ├── NovoPedido.jsx
+│   │   │   └── MeusPedidos.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── styles/
+│   │   │   ├── global.css
+│   │   │   ├── navbar.css
+│   │   │   ├── card.css
+│   │   │   └── forms.css
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── package.json
+│   └── vite.config.js
+│
+├── backend/
+│   │
+│   ├── data/
+│   │   ├── usuarios.json
+│   │   └── pedidos.json
+│   │
+│   ├── routes/
+│   │   ├── auth.py
+│   │   └── pedidos.py
+│   │
+│   ├
+│   │   
+│   │
+│   ├── app.py
+│   ├── requirements.txt
+│   └── .env
+│
+├── docs/
+│   └── logo.png
+│
+├── README.md
+└── .gitignore
+```
+
+## 👥 Integrantes
+
+- Gustavo   (n° matrícula)
+- Maurício  (n° matrícula)
+- Roberto   (n° 2024007038)
