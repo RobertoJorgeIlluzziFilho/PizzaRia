@@ -47,19 +47,3 @@ O projeto utiliza:
 
 ## 📂 Estrutura do projeto (provisoriamente/exemplo)
 
-```bash
-pizzaria-web/
-│
-├── frontend/
-│   ├── src/
-│   └── public/
-│
-├── backend/
-│   ├── app.py
-│   └── data/
-│
-├── docs/
-│   └── logo.png
-│
-├── README.md
-└── .gitignore
