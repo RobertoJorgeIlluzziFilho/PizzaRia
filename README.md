@@ -112,6 +112,6 @@ PizzaRia/
 
 ## 👥 Integrantes
 
-- Gustavo   (n° matrícula)
+- Gustavo   (n° 2024012987)
 - Maurício  (n° matrícula)
 - Roberto   (n° 2024007038)
