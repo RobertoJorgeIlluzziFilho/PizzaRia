@@ -2,6 +2,10 @@
 from flask import Blueprint, request, jsonify
 import json
 
+""""
+Código de retorno HTTP e seus significados:
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status
+"""
 
 # React irá me retornar os dados de e-mail e senha no formato JSON
 
@@ -41,7 +45,7 @@ def login():
 
     return jsonify({
         "erro": "Credenciais inválidas"
-    })
+    }), 409
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
@@ -60,6 +64,14 @@ def register():
     with open(usuarios, "r") as file:
         usuarios_json = json.load(file) # transforma nosso JSON em uma lista python
 
+
+    # verificação de usuário já cadastrado
+    for usuario in usuarios_json:
+        if(usuario["email"] == email):
+            return jsonify({
+                "erro": "Usuário já cadastrado"
+                }), 409 
+
     # cria um novo usuário pra ser adicionado na nossa lista de usuários
     novo_usuario = {
         "email": email,
@@ -76,4 +88,4 @@ def register():
 
     return jsonify({
         "mensagem": "Usuário adicionado com sucesso!"
-    }), 200
+    }), 200 
