@@ -47,8 +47,8 @@ def login():
 def register():
     dados = request.get_json()
 
-    email = dados["email"]
-    senha = dados["senha"]
+    email = dados.get("email")
+    senha = dados.get("senha")
 
     # campos preenchidos?
     if not email or not senha:
