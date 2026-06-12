@@ -19,8 +19,8 @@ def login():
 
 
     # pega os dados digitados
-    email = dados["email"]
-    senha = dados["senha"]
+    email = dados.get("email")
+    senha = dados.get("senha")
 
 
     # campos preenchidos?
