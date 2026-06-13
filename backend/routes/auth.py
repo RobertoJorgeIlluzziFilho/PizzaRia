@@ -51,6 +51,7 @@ def login():
 def register():
     dados = request.get_json()
 
+    nome = dados.get("nome") # Identificação 
     email = dados.get("email")
     senha = dados.get("senha")
 
@@ -69,11 +70,12 @@ def register():
     for usuario in usuarios_json:
         if(usuario["email"] == email):
             return jsonify({
-                "erro": "Usuário já cadastrado"
+                "erro": f"E-mail {usuario["email"]} já cadastrado"
                 }), 409 
 
     # cria um novo usuário pra ser adicionado na nossa lista de usuários
     novo_usuario = {
+        "nome": nome,
         "email": email,
         "senha": senha
     }
@@ -87,5 +89,5 @@ def register():
         json.dump(usuarios_json, file)
 
     return jsonify({
-        "mensagem": "Usuário adicionado com sucesso!"
+        "mensagem": f"Usuário {novo_usuario["nome"]} adicionado com sucesso!"
     }), 200 
