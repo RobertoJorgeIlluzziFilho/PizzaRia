@@ -18,6 +18,11 @@ usuarios = "data/usuarios.json"
 @auth_bp.route('/login', methods=['POST'])
 def login():
     
+
+    ###############################
+    #     VERIFICAÇÃO NO LOGIN    #
+    ###############################
+
     # pegar dados
     dados = request.get_json()
 
@@ -37,6 +42,9 @@ def login():
     with open(usuarios, "r") as file:
         usuarios_json = json.load(file) # transforma nosso JSON em uma lista python
 
+    ###############################
+    #       SUCESSO NO LOGIN      #
+    ###############################
     for usuario in usuarios_json:
         if usuario["email"] == email and usuario["senha"] == senha:
             return jsonify({
@@ -54,6 +62,10 @@ def register():
     nome = dados.get("nome") # Identificação 
     email = dados.get("email")
     senha = dados.get("senha")
+
+    ###############################
+    #   VERIFICAÇÃO NO CADASTRO   #
+    ###############################
 
     # campos preenchidos?
     if not email or not senha:
@@ -73,8 +85,14 @@ def register():
                 "erro": f"E-mail {usuario["email"]} já cadastrado"
                 }), 409 
 
+    ###############################
+    #    SUCESSO NO CADASTRO   #
+    ###############################
+    
     # cria um novo usuário pra ser adicionado na nossa lista de usuários
+    novo_id = len(usuarios) + 1
     novo_usuario = {
+        "id": novo_id,
         "nome": nome,
         "email": email,
         "senha": senha
