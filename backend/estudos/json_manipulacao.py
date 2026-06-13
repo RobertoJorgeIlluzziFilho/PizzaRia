@@ -3,15 +3,21 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
-@app.route('/usuario', methods=["POST"])
+"""
+jsonify: 
+    Ele também configura automaticamente o header:
+    Content-Type: application/json
+"""
+
+@app.route('/usuario', methods=["POST", "GET"])
 def criar_usuario():
 
 
-    # get para ler os dados
+    # get para ler/pegar os dados
     dados = request.get_json()
 
     # exibe os dados no formato json
-    # flask trata o JSON como um dicionário (dict) -> estrutura semelhante
+    # flask trata/converte o JSON recebido como um dicionário (dict) -> estrutura semelhante
 
     # Flask transforma o dicionário em JSON antes de retornar
     return jsonify({
@@ -22,7 +28,7 @@ def criar_usuario():
     
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
 
 
 

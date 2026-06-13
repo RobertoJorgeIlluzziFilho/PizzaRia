@@ -10,9 +10,9 @@ def listar_pedidos():
 
 # Vou precisar criar o pedido no usuário logado atualmente
 @pedidos_bp.route('/pedidos', methods=["POST"])
-def criar_pedidos():
+def criar_pedido():
     return
 @pedidos_bp.route('/pedidos', methods=["DELETE"])
-def remover_pedidos():
+def remover_pedido():
     return
 

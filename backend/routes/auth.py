@@ -48,7 +48,12 @@ def login():
     for usuario in usuarios_json:
         if usuario["email"] == email and usuario["senha"] == senha:
             return jsonify({
-                "sucesso": "Login realizado"
+                "sucesso": "Login realizado",
+                "usuario": { # naõ podemos passar o objeto "usuario" direto, por conta que irá retornar a senha também
+                    "id": usuario["id"],
+                    "nome": usuario["nome"],
+                    "email": usuario["email"]
+                }
             }), 200
 
     return jsonify({
