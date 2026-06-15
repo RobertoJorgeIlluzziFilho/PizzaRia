@@ -1,18 +1,26 @@
-
 // o App.jsx é o gerenciador principal, ele decide:
 // Qual página aparece?
 // Qual rota aparece?
 // Qual layout aparece?
 
-
 // Rotas no REACT
-import Home from './pages/Home'  // página após o usuário se autenticar
-import Login from './pages/Login' // vai ser nossa "home" inicial
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Home from './pages/Home'   // página após autenticação
+import Login from './pages/Login' // tela inicial
 // import Cadastro from './pages/Cadastro'
 
+// path principal, quando o usuário acessar a rota Root
+// Ele irá redirecionar automaticamente pro /Login
 function App() {
   return (
-      <Login />
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
