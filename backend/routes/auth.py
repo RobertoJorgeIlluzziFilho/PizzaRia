@@ -87,7 +87,7 @@ def register():
     for usuario in usuarios_json:
         if(usuario["email"] == email):
             return jsonify({
-                "erro": f"E-mail {usuario["email"]} já cadastrado"
+                "erro": f"E-mail {usuario['email']} já cadastrado"
                 }), 409 
 
     ###############################
@@ -95,7 +95,7 @@ def register():
     ###############################
     
     # cria um novo usuário pra ser adicionado na nossa lista de usuários
-    novo_id = len(usuarios) + 1
+    novo_id = len(usuarios_json) + 1
     novo_usuario = {
         "id": novo_id,
         "nome": nome,
@@ -112,5 +112,5 @@ def register():
         json.dump(usuarios_json, file)
 
     return jsonify({
-        "mensagem": f"Usuário {novo_usuario["nome"]} adicionado com sucesso!"
+        "mensagem": f"Usuário {novo_usuario['nome']} adicionado com sucesso!"
     }), 200 
