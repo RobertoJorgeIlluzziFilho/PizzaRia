@@ -1,17 +1,24 @@
-import '../styles/login.css'
-import { useState } from "react" // adicionar e gerenciar estados
+import "../styles/login.css";
+import "../styles/forms.css";
+
+import bgImg from "../assets/background_limpo.png";
+import AuthLayout from "../components/AuthLayout";
+import AuthForm from "../components/AuthForm";
 
 function Login() {
+  return (
+    <div
+      className="page-wrapper"
+      style={{ backgroundImage: `url(${bgImg})` }}
+    >
+      <AuthLayout />
+      <AuthForm mode="login" />
 
-  // criando variáveis para guardar o que o usuário digitar
-  const [email, setEmail] = useState(""); // [valor, função-altera-valor]
-  const [senha, setSenha] = useState(""); // valor, função-altera-valor
+      <footer className="page-footer">
+        &copy; 2026 PizzaRia. Todos os direitos reservados.
+      </footer>
+    </div>
+  );
+}
 
-  // função de login asíncrona (nosso evento, na aula: "e")
-  async function handleLogin(event){
-
-    
-  }
- 
-
-export default Login
+export default Login;
