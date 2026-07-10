@@ -2,7 +2,7 @@
 
 Sistema web de pizzaria desenvolvido com React e Flask.
 
-![Logo da PizzaRia](docs/logo.png)
+![Logo da PizzaRia](frontend/src/assets/pizza-hero.png)
 
 ---
 
@@ -24,7 +24,7 @@ O projeto utiliza:
 - 📦 Criação e gerenciamento de pedidos (CRUD)
 - ✏️ Edição e remoção de pedidos
 - 📍 Busca automática de endereço via CEP (BrasilAPI)
-- 🔒 Rotas protegidas com autenticação
+- 🔒 Rotas protegidas com autenticação JWT
 - 📱 Interface responsiva
 - ⚡ Integração frontend/backend via JSON
 
@@ -42,6 +42,8 @@ O projeto utiliza:
 ### Backend
 - Flask (Python)
 - Flask-CORS
+- Pydantic (validação de schemas)
+- PyJWT (autenticação)
 - API REST
 - JSON (arquivos como banco de dados)
 
@@ -54,7 +56,10 @@ PizzaRia/
 │
 ├── backend/                          ← Servidor Flask (API REST)
 │   ├── app.py                        ← Inicialização do Flask + CORS + Blueprints
+│   ├── auth_middleware.py            ← Middleware JWT (token_required, gerar_token)
+│   ├── schemas.py                    ← Schemas Pydantic (CadastroSchema, LoginSchema)
 │   ├── requirements.txt              ← Dependências Python
+│   ├── .gitignore                    ← Ignorar .venv, __pycache__, etc.
 │   ├── routes/
 │   │   ├── auth.py                   ← POST /auth/login e /auth/register
 │   │   ├── pedidos.py                ← CRUD /pedidos (GET, POST, DELETE, PATCH)
@@ -97,9 +102,7 @@ PizzaRia/
 │       │   ├── PizzaSelector.jsx     ← Seletor de sabor no wizard
 │       │   ├── SizeSelector.jsx      ← Seletor de tamanho
 │       │   ├── ExtrasSelector.jsx    ← Seleção de adicionais
-│       │   ├── OrderSummary.jsx      ← Resumo do pedido no carrinho
-│       │   
-│       │   
+│       │   └── OrderSummary.jsx      ← Resumo do pedido no carrinho
 │       ├── styles/
 │       │   ├── global.css            ← Reset básico e variáveis CSS
 │       │   ├── login.css             ← Layout split da tela de login
@@ -110,24 +113,15 @@ PizzaRia/
 │       │   ├── card.css              ← Cards de pizza no cardápio
 │       │   └── novo-pedido.css       ← Wizard de montagem e checkout
 │       └── assets/
-│           ├── background.png        ← Fundo da tela de login
-│           ├── background_limpo.png  ← Fundo limpo
-│           ├── logo.png              ← Logo principal
-│           ├── logo_fundo_removido.png ← Logo sem fundo
-│           ├── pizza-hero.png        ← Imagem hero da pizza
-│           └── superior-esquerdo.png ← Imagem decorativa
-│
-├── docs/                             ← Documentação e assets extras
-│   ├── logo.png                      ← Logo para o README
-│   ├── logo_fundo_removido.png       ← Logo sem fundo
-│   ├── logo_limpa.png                ← Logo limpa
-│   
+│           ├── background_limpo.png  ← Fundo limpo da tela de login
+│           └── pizza-hero.png        ← Imagem hero da pizza
 │
 ├── .github/
 │   └── workflows/
 │       └── sync-branches.yml         ← GitHub Actions: sincroniza backend/ e frontend/ entre branches
 │
 ├── README.md                         ← Este arquivo
+├── requirements.txt                  ← Dependências Python do backend (referência central)
 ├── .gitignore                        ← Arquivos ignorados pelo git (raiz)
 └── LICENSE                           ← Licença do projeto
 ```
@@ -142,10 +136,7 @@ PizzaRia/
 cd backend
 python3 -m venv .venv
 source .venv/bin/activate
-pip install Flask Flask-CORS
-pip install pydantic
-pip install email-validator
-pip install PyJWT
+pip install -r ../requirements.txt
 python app.py
 ```
 
