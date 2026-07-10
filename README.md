@@ -181,12 +181,8 @@ O servidor de desenvolvimento roda em `http://127.0.0.1:5173`
 
 ## 👥 Integrantes
 
-- Gustavo   (n° 2024012987)
-- Maurício  (n° 202401139)
-- Roberto   (n° 2024007038)
-=======
 | Nome | Matrícula | Responsabilidade |
-|------|-----------|-----------------|
+|------|-----------|------------------|
 | Gustavo | 2024012987 | Estilos CSS + Layouts Estruturais + Infraestrutura + Documentação |
 | Maurício | 2024011139 | Páginas React + Componentes Visuais + Assets |
 | Roberto | 2024007038 | Backend (Flask) + Service Layer (api.js) + Roteamento (App.jsx) |
