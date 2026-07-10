@@ -1,4 +1,5 @@
-// O App é o responsável por definir todas as rotas da aplicação
+// o App.jsx é o gerenciador principal, ele decide:
+// Qual página aparece? Qual rota aparece? Qual layout aparece?
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import "./styles/forms.css";
@@ -17,12 +18,9 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-
-          {/* Rotas públicas */}
           <Route path="/" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
 
-          {/* Rotas que exigem login */}
           <Route
             path="/home"
             element={
