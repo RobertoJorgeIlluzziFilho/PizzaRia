@@ -1,0 +1,10 @@
+# Criar ambiente virtual (no local apropriado)
+cd backend
+python3 -m venv .venv
+
+# Ativar ambiente virtual (MacOS e Linux)
+source venv/bin/activate
+
+# instalação do flask + flask cors
+pip install Flask Flask-CORS
+
